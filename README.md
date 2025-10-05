@@ -1,252 +1,292 @@
-🚀 Alerting & Notification Platform
+# 🚀 Alerting & Notification Platform
 
-A lightweight, extensible alerting and notification system built with Django REST Framework, featuring admin configurability, user control, and clean OOP design patterns.
+A lightweight, extensible alerting and notification system built with **Django REST Framework**, featuring admin configurability, user control, and clean **OOP design patterns**.
 
-📋 Table of Contents
+---
 
-Overview
+## 📋 Table of Contents
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture--design-patterns)
+- [Installation](#️-installation)
+- [API Endpoints](#-api-endpoints)
+- [Project Structure](#-project-structure)
+- [Testing](#-testing)
+- [How It Works](#-how-it-works)
+- [Future Scope](#-future-scope)
+- [Troubleshooting](#-troubleshooting)
+- [Security Notes](#-security-notes)
+- [License](#-license)
 
-Features
+---
 
-Tech Stack
-
-Architecture
-
-Installation
-
-API Endpoints
-
-Project Structure
-
-Testing
-
-Future Scope
-
-Troubleshooting
-
-Security Notes
-
-🎯 Overview
+## 🎯 Overview
 
 A scalable platform for managing organizational alerts and notifications.
 
-Admins: Create, configure, and monitor alerts with visibility control.
+- **Admins:** Create, configure, and monitor alerts with visibility control.  
+- **Users:** Receive, snooze, and track alerts.  
+- **System:** Sends automatic 2-hour reminders until snoozed or expired.  
+- **Analytics:** Provides insights into alert delivery and engagement.
 
-Users: Receive, snooze, and track alerts.
+---
 
-System: Sends automatic 2-hour reminders until snoozed or expired.
+## ✨ Features
 
-Analytics: Provides insights into alert delivery and engagement.
+### 👨‍💼 Admin
+- Create alerts (**Info / Warning / Critical**)
+- Define visibility: **Organization / Team / User**
+- Configure start, expiry, and reminder frequency
+- Archive, update, and filter alerts
+- View analytics (delivery & engagement)
 
-✨ Features
-Admin
+### 👤 User
+- Receive alerts relevant to them
+- Mark alerts as **read/unread**
+- **Snooze alerts** (resets daily)
+- View snooze history
 
-Create alerts (Info/Warning/Critical)
+### ⚙️ System
+- Automated 2-hour reminders via **Celery**
+- Daily snooze reset
+- Cloud task queue (**Upstash Redis**)
+- In-app notifications (MVP)
 
-Define visibility: Organization / Team / User
+---
 
-Configure start, expiry, reminder frequency
+## 🛠️ Tech Stack
 
-Archive, update, and filter alerts
+| Component | Technology |
+|------------|-------------|
+| **Backend** | Django 4.2, DRF 3.14 |
+| **Database** | MySQL 8.0 |
+| **Queue** | Celery 5.3 + Redis (Upstash) |
+| **Authentication** | JWT (SimpleJWT) |
+| **Language** | Python 3.8+ |
 
-View analytics (delivery & engagement)
+---
 
-User
+## 🧱 Architecture & Design Patterns
 
-Receive alerts relevant to them
+1. **Strategy Pattern** – Encapsulates notification delivery (InApp, Email, SMS).  
+2. **Factory Pattern** – Centralized strategy creation for extensibility.  
+3. **Service Layer Pattern** – Separates business logic from views for clean, testable code.
 
-Mark as read/unread
+**OOP Principles:** Encapsulation, Abstraction, Inheritance, Polymorphism, SRP, Open/Closed Principle.
 
-Snooze alerts (resets daily)
+---
 
-View snooze history
 
-System
+## ⚙️ Installation
 
-Automated 2-hour reminders via Celery
+### Prerequisites
+- Python 3.8+
+ - MySQL 8.0
+ - Upstash Redis (Free tier)
 
-Daily snooze reset
+### Steps
 
-Cloud task queue (Upstash Redis)
-
-In-app notifications (MVP)
-
-🛠️ Tech Stack
-Component	Technology
-Backend	Django 4.2, DRF 3.14
-DB	MySQL 8.0
-Queue	Celery 5.3 + Redis (Upstash)
-Auth	JWT (SimpleJWT)
-Language	Python 3.8+
-🧱 Architecture & Design Patterns
-
-1. Strategy Pattern (Notification Channels)
-Encapsulates notification delivery (InApp, Email, SMS).
-
-2. Factory Pattern (Channel Selection)
-Centralized strategy creation for extensibility.
-
-3. Service Layer Pattern (Business Logic)
-Separates business logic from views for cleaner, testable code.
-
-OOP Principles: Encapsulation, Abstraction, Inheritance, Polymorphism, SRP, Open/Closed Principle.
-
-⚙️ Installation
-Prerequisites
-
-Python 3.8+
-
-MySQL 8.0
-
-Upstash Redis (Free tier)
-
-Steps
 # Clone and setup
-git clone <repo-url>
-cd backend
-python -m venv venv
-venv\Scripts\activate  # Windows
+  ```git clone <repo-url>
+ 
+  cd backend
+  
+  python -m venv venv
+  
+  venv\Scripts\activate  # Windows
+  
+  pip install -r requirements.txt
+```
 
-pip install -r requirements.txt
+# Setup .env file
+  ```SECRET_KEY=your-secret
+ 
+   DEBUG=True
+  
+   DB_NAME=alerting_platform
+  
+   DB_USER=root
+ 
+   DB_PASSWORD=your_password
+  
+   DB_HOST=localhost
+ 
+   REDIS_URL=rediss://default:your-password@your-redis-url.upstash.io:6379
+  ```
+
+## ⚙️ Setup Database
+
+### 1. Login to MySQL
+   
+     mysql -u root -p
+
+### 2. Create database
+   
+     CREATE DATABASE alerting_platform;
+
+ ### 3. Apply migrations
+
+     python manage.py migrate
+
+### 4. Seed initial data
+
+     python manage.py seed_data
 
 
-Create .env:
+## 🚀 Run Application
 
-SECRET_KEY=your-secret
-DEBUG=True
+ ### Terminal 1: Run Django server
+    
+    python manage.py runserver
 
-DB_NAME=alerting_platform
-DB_USER=root
-DB_PASSWORD=your_password
-DB_HOST=localhost
+ ### Terminal 2: Start Celery worker
+     celery -A alerting_platform worker --pool=solo -l info
 
-REDIS_URL=rediss://default:your-password@your-redis-url.upstash.io:6379
+ ### Terminal 3: Start Celery beat scheduler
+    celery -A alerting_platform beat -l info
 
+---
 
-Setup DB:
+## 📚 API Endpoints
 
-mysql -u root -p
-CREATE DATABASE alerting_platform;
-python manage.py migrate
-python manage.py seed_data
+**Base URL:** `http://localhost:8000/api`
 
+### 🔐 Auth
+| Method | Endpoint       | Description         |
+|--------|----------------|-------------------|
+| POST   | /auth/login/   | Login (JWT)       |
+| GET    | /auth/me/      | Current user info |
 
-Run:
+### 🧑‍💼 Admin
+| Method | Endpoint                      | Description                    |
+|--------|-------------------------------|--------------------------------|
+| POST   | /admin/alerts/                | Create alert                  |
+| GET    | /admin/alerts/                | List alerts (filter by severity/status) |
+| PUT    | /admin/alerts/{id}/           | Update alert                  |
+| DELETE | /admin/alerts/{id}/archive/   | Archive alert                 |
+| POST   | /admin/alerts/{id}/trigger/   | Trigger alert manually        |
 
-# Terminal 1
-python manage.py runserver
+### 👥 User
+| Method | Endpoint                        | Description            |
+|--------|---------------------------------|-----------------------|
+| GET    | /user/alerts/                   | View alerts           |
+| PUT    | /user/alerts/{id}/mark_read/    | Mark as read          |
+| POST   | /user/alerts/{id}/snooze/       | Snooze alert          |
+| GET    | /user/alerts/snoozed/           | View snoozed alerts   |
 
-# Terminal 2
-celery -A alerting_platform worker --pool=solo -l info
+### 📊 Analytics
+| Method | Endpoint                     | Description        |
+|--------|------------------------------|------------------|
+| GET    | /analytics/                  | System metrics    |
+| GET    | /analytics/alerts/{id}/      | Alert metrics     |
 
-# Terminal 3
-celery -A alerting_platform beat -l info
+---
 
-📚 API Endpoints
+## 📁 Project Structure
 
-Base URL: http://localhost:8000/api
-
-Auth
-
-POST /auth/login/ → Login (JWT)
-
-GET /auth/me/ → Current user
-
-Admin
-
-POST /admin/alerts/ → Create alert
-
-GET /admin/alerts/ → List alerts (filter by severity/status)
-
-PUT /admin/alerts/{id}/ → Update
-
-DELETE /admin/alerts/{id}/archive/ → Archive
-
-POST /admin/alerts/{id}/trigger/ → Trigger manually
-
-User
-
-GET /user/alerts/ → View alerts
-
-PUT /user/alerts/{id}/mark_read/ → Mark read
-
-POST /user/alerts/{id}/snooze/ → Snooze
-
-GET /user/alerts/snoozed/ → Snoozed alerts
-
-Analytics
-
-GET /analytics/ → System metrics
-
-GET /analytics/alerts/{id}/ → Alert metrics
-
-📁 Project Structure
+```text
 backend/
 ├── alerting_platform/
-│   ├── settings.py / celery.py / urls.py
+│   ├── settings.py
+│   ├── celery.py
+│   └── urls.py
 │
 ├── alerts/
-│   ├── models.py / views.py / services.py / tasks.py
+│   ├── models.py
+│   ├── views.py
+│   ├── services.py
+│   ├── tasks.py
 │   └── management/commands/seed_data.py
 │
 ├── requirements.txt
 ├── manage.py
 └── .env
+```
+---
 
-🧪 Testing
-# 1. Login
-curl -X POST http://localhost:8000/api/auth/login/ \
+## 🧪 Testing
+
+### 1. Login
+
+   curl -X POST http://localhost:8000/api/auth/login/ \
   -H "Content-Type: application/json" \
   -d '{"email":"admin@example.com","password":"password123"}'
 
-# 2. Create alert
-curl -X POST http://localhost:8000/api/admin/alerts/ \
+
+### 2. Create alert
+ curl -X POST http://localhost:8000/api/admin/alerts/ \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{"title":"Test Alert","message":"Testing","severity":"Info"}'
 
-🔄 How It Works
 
-Celery Beat: schedules process_reminders() every 2 hours, reset_expired_snoozes() daily.
+---
 
-Celery Worker: sends alerts, logs deliveries, skips snoozed users.
+## 🔄 How It Works
 
-Visibility: organization / team / user targeting.
+### Celery Beat:
+ - Schedules process_reminders() every 2 hours
 
-🚀 Future Scope
+ - Runs reset_expired_snoozes() daily
 
-Email & SMS channels (Twilio/AWS SNS)
+### Celery Worker:
+ - Sends alerts
 
-Custom reminder frequency
+ - Logs deliveries
 
-Scheduled & recurring alerts
+ - Skips snoozed users
 
-Escalation rules (auto-upgrade severity)
+### Visibility levels:
+ - Organization / Team / User targeting
 
-Push notifications
+---
 
-Alert templates
+## 🚀 Future Scope
 
-🐛 Troubleshooting
-Issue	Fix
-Redis not connecting	Verify REDIS_URL starts with rediss://
-MySQL errors	Ensure MySQL is running, recreate DB
-Celery not running	Check all 3 processes (Django, worker, beat)
-🔐 Security Notes
+ - Email & SMS channels (Twilio / AWS SNS)
+ - Custom reminder frequency
+ - Scheduled & recurring alerts
+ - Escalation rules (auto-upgrade severity)
+ - Push notifications
+ - Alert templates
 
-Change SECRET_KEY & disable DEBUG in production
+---
 
-Store credentials in .env
+## 🐛 Troubleshooting
 
-Enforce HTTPS & JWT rotation
+ Issue                 Fix
+ 
+ Redis not connecting  Verify REDIS_URL starts with rediss://
+ 
+ MySQL errors          Ensure MySQL is running, recreate DB
+ 
+ Celery not running    Check all 3 processes (Django, Worker, Beat)
 
-Implement rate limiting
+---
 
-Use strong database credentials
+## 🔐 Security Notes
 
-📝 License
+ - Change SECRET_KEY & disable DEBUG in production
+ - Store credentials in .env
+ - Enforce HTTPS & JWT rotation
+ - Implement rate limiting
+ - Use strong database credentials
 
-Educational demo showcasing:
-Strategy • Factory • Service Layer • Celery • REST API • Clean Architecture
+---
 
-Built with ❤️ using Django, Celery, and OOP Design Principles.
+## 📝 License
+
+## Educational demo showcasing:
+ - Strategy
+
+ - Factory
+
+ - Service Layer
+
+ - Celery
+
+ - REST API
+- Clean Architecture
+
+# Built with ❤️ using Django, Celery, and OOP Design Principles
