@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: alerting-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn alerting_platform.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+
+  - type: worker
+    name: celery-worker
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: celery -A alerting_platform worker -l info
+    
+  - type: worker
+    name: celery-beat
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: celery -A alerting_platform beat -l info
