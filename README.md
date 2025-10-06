@@ -10,6 +10,7 @@ A lightweight, extensible alerting and notification system built with **Django R
 - [Tech Stack](#-tech-stack)
 - [Architecture](#-architecture--design-patterns)
 - [Installation](#️-installation)
+- [Deployment](#-deployment)   
 - [API Endpoints](#-api-endpoints)
 - [Project Structure](#-project-structure)
 - [Testing](#-testing)
@@ -204,6 +205,30 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
     celery -A alerting_platform beat -l info
 
 ---
+
+## 🚀 Deployment
+
+This project is fully deployed and accessible online. Below are the details:
+
+### Backend
+- **Platform:** Render
+- **URL:** [https://alert-management-system-1.onrender.com](https://alert-management-system-1.onrender.com)
+- **Database:** Aiven MySQL (online hosted database)
+- **Authentication:** JWT-based authentication
+- **Background tasks:** Redis + Celery for reminders and notifications
+
+### Frontend
+- **Platform:** Vercel
+- **URL:** [https://your-frontend.vercel.app](https://your-frontend.vercel.app)
+- **Connected to backend:** via Render API
+
+### Notes
+- The backend and frontend communicate via REST API
+- JWT tokens are required for accessing protected endpoints
+- Sample credentials (for testing):
+  - Email: `test@example.com`
+  - Password: `Password123`
+
 
 ## 📚 API Endpoints
 
