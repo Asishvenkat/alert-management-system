@@ -359,17 +359,7 @@ backend/
 
 ##  License
 
-### Educational demo showcasing:
- - Strategy
-
- - Factory
-
- - Service Layer
-
- - Celery
-
- - REST API
-- Clean Architecture
+This project is licensed under the MIT License.
 
 ## Built using Django, Celery, and solid OOP design principles.
 
