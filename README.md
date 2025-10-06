@@ -29,6 +29,13 @@ A scalable platform for managing organizational alerts and notifications.
 - **Users:** Receive, snooze, and track alerts.  
 - **System:** Sends automatic 2-hour reminders until snoozed or expired.  
 - **Analytics:** Provides insights into alert delivery and engagement.
+- **Frontend (Live):** [https://alert-management-ui.vercel.app/login](https://alert-management-ui.vercel.app/login)  
+- **Backend (API):** [https://alert-management-system-1.onrender.com](https://alert-management-system-1.onrender.com)  
+
+> 🧪 Notes:
+> - You can test the backend APIs directly using **Postman** or **cURL**.  
+>   Example base URL: `https://alert-management-system-1.onrender.com/api`  
+> - The frontend may take a few seconds to log in initially due to server startup and API response time.
 
 ---
 
