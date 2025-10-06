@@ -130,16 +130,9 @@ SIMPLE_JWT = {
 }
 
 # CORS Settings - Allow React Frontend
-CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL', default=True, cast=bool)
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-# If you want to restrict to specific origins:
-CORS_ALLOWED_ORIGINS = [
-      "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
 
 # Upstash Redis Configuration
 REDIS_URL = config('REDIS_URL', default='rediss://default:AR1IAAImcDIwYzBhZmM3MWZkMTQ0NjZiOTU0MGJkYTU5ZGQ4Y2JiMXAyNzQ5Ng@amazed-redbird-7496.upstash.io:6379')
