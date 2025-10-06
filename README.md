@@ -22,15 +22,59 @@ A lightweight, extensible alerting and notification system built with **Django R
 ---
 
 ## 🎯 Overview
-
 A scalable platform for managing organizational alerts and notifications.
-
 - **Admins:** Create, configure, and monitor alerts with visibility control.  
 - **Users:** Receive, snooze, and track alerts.  
 - **System:** Sends automatic 2-hour reminders until snoozed or expired.  
 - **Analytics:** Provides insights into alert delivery and engagement.
-- **Frontend (Live):** [https://alert-management-ui.vercel.app/login](https://alert-management-ui.vercel.app/login)  
-- **Backend (API):** [https://alert-management-system-1.onrender.com](https://alert-management-system-1.onrender.com)  
+
+ ## 🖼️ Screenshots
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://drive.google.com/file/d/1L_RFW0QcDriAHaCaU25Arq763GEgggPm/view?usp=sharing" target="_blank">
+        <img src="https://drive.google.com/uc?export=view&id=1L_RFW0QcDriAHaCaU25Arq763GEgggPm" width="300"/>
+      </a>
+      <br/>Admin: Create Alert
+    </td>
+    <td align="center">
+      <a href="https://drive.google.com/file/d/1GHykLPmqVpE9M3OZwnXQbx_nrltyxuNL/view?usp=sharing" target="_blank">
+        <img src="https://drive.google.com/uc?export=view&id=1GHykLPmqVpE9M3OZwnXQbx_nrltyxuNL" width="300"/>
+      </a>
+      <br/>User: View Alerts
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://drive.google.com/file/d/1i622EkZSGNqY-KKP1UDCKWW4TSPSwIlG/view?usp=sharing" target="_blank">
+        <img src="https://drive.google.com/uc?export=view&id=1i622EkZSGNqY-KKP1UDCKWW4TSPSwIlG" width="300"/>
+      </a>
+      <br/>Analytics Dashboard
+    </td>
+    <td align="center">
+      <a href="https://drive.google.com/file/d/1UWwPe_Eay2RobtTwOzO1tAecctcNtqFL/view?usp=sharing" target="_blank">
+        <img src="https://drive.google.com/uc?export=view&id=1UWwPe_Eay2RobtTwOzO1tAecctcNtqFL" width="300"/>
+      </a>
+      <br/>Admin: View Alerts
+    </td>
+  </tr>
+</table>
+
+
+
+### 🌐 Live Demo
+- **Frontend:** [https://alert-management-ui.vercel.app/login](https://alert-management-ui.vercel.app/login)  
+- **Backend API:** [https://alert-management-system-1.onrender.com](https://alert-management-system-1.onrender.com)  
+
+### 🔑 Test Credentials
+**Admin Account:**
+- Email: `admin@example.com`
+- Password: `password123`
+
+**Regular User Account:**
+- Email: `user@example.com`
+- Password: `password123`
 
 ## 🧪 Notes & Feature Info
 
@@ -42,7 +86,6 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
 **Feature Availability:**  
 - **Frontend:** Most main features are ready; some actions are only available via the backend API.  
 - **Backend:** All features are fully implemented and testable via API.
-
 
 ---
 
