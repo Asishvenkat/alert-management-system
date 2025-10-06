@@ -359,7 +359,7 @@ backend/
 
 ## 📝 License
 
-## Educational demo showcasing:
+### Educational demo showcasing:
  - Strategy
 
  - Factory
