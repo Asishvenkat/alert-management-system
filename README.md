@@ -346,4 +346,5 @@ backend/
  - REST API
 - Clean Architecture
 
-# Built with ❤️ using Django, Celery, and OOP Design Principles
+## Built using Django, Celery, and solid OOP design principles.
+
