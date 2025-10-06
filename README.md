@@ -32,10 +32,17 @@ A scalable platform for managing organizational alerts and notifications.
 - **Frontend (Live):** [https://alert-management-ui.vercel.app/login](https://alert-management-ui.vercel.app/login)  
 - **Backend (API):** [https://alert-management-system-1.onrender.com](https://alert-management-system-1.onrender.com)  
 
-> 🧪 Notes:
-> - You can test the backend APIs directly using **Postman** or **cURL**.  
->   Example base URL: `https://alert-management-system-1.onrender.com/api`  
-> - The frontend may take a few seconds to log in initially due to server startup and API response time.
+## 🧪 Notes & Feature Info
+
+**Test the backend:** Easily try all APIs using **Postman** or **cURL**.  
+Example base URL: `https://alert-management-system-1.onrender.com/api`
+
+**Frontend Login:** May take a few seconds initially due to server startup and API response time.
+
+**Feature Availability:**  
+- **Frontend:** Most main features are ready; some actions are only available via the backend API.  
+- **Backend:** All features are fully implemented and testable via API.
+
 
 ---
 
