@@ -1,10 +1,10 @@
-# 🚀 Alerting & Notification Platform
+#  Alerting & Notification Platform
 
 A lightweight, extensible alerting and notification system built with **Django REST Framework**, featuring admin configurability, user control, and clean **OOP design patterns**.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 - [Overview](#-overview)
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
@@ -22,7 +22,7 @@ A lightweight, extensible alerting and notification system built with **Django R
 
 ---
 
-## 🎯 Overview
+##  Overview
 A scalable platform for managing organizational alerts and notifications.
 - **Admins:** Create, configure, and monitor alerts with visibility control.  
 - **Users:** Receive, snooze, and track alerts.  
@@ -43,7 +43,7 @@ A scalable platform for managing organizational alerts and notifications.
 - Email: `user@example.com`
 - Password: `password123`
 
-## 🧪 Notes & Feature Info
+##  Notes & Feature Info
 
 **Test the backend:** Easily try all APIs using **Postman** or **cURL**.  
 Example base URL: `https://alert-management-system-1.onrender.com/api`
@@ -58,26 +58,26 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
 
 ## ✨ Features
 
-### 👨‍💼 Admin
+###  Admin
 - Create alerts (**Info / Warning / Critical**)
 - Define visibility: **Organization / Team / User**
 - Configure start, expiry, and reminder frequency
 - Archive, update, and filter alerts
 - View analytics (delivery & engagement)
 
-### 👤 User
+###  User
 - Receive alerts relevant to them
 - Mark alerts as **read/unread**
 - **Snooze alerts** (resets daily)
 - View snooze history
 
-### ⚙️ System
+###  System
 - Automated 2-hour reminders via **Celery**
 - Daily snooze reset
 - Cloud task queue (**Upstash Redis**)
 - In-app notifications (MVP)
 
- ## 🖼️ Screenshots
+ ## Screenshots
 
 <table>
   <tr>
@@ -113,7 +113,7 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Component | Technology |
 |------------|-------------|
@@ -125,7 +125,7 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
 
 ---
 
-## 🧱 Architecture & Design Patterns
+##  Architecture & Design Patterns
 
 1. **Strategy Pattern** – Encapsulates notification delivery (InApp, Email, SMS).  
 2. **Factory Pattern** – Centralized strategy creation for extensibility.  
@@ -136,7 +136,7 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
 ---
 
 
-## ⚙️ Installation
+##  Installation
 
 ### Prerequisites
 - Python 3.8+
@@ -192,7 +192,7 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
      python manage.py seed_data
 
 
-## 🚀 Run Application
+##  Run Application
 
  ### Terminal 1: Run Django server
     
@@ -206,7 +206,7 @@ Example base URL: `https://alert-management-system-1.onrender.com/api`
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 This project is fully deployed and accessible online. Below are the details:
 
@@ -230,17 +230,17 @@ This project is fully deployed and accessible online. Below are the details:
   - Password: `Password123`
 
 
-## 📚 API Endpoints
+##  API Endpoints
 
 **Base URL:** `http://localhost:8000/api`
 
-### 🔐 Auth
+###  Auth
 | Method | Endpoint       | Description         |
 |--------|----------------|-------------------|
 | POST   | /auth/login/   | Login (JWT)       |
 | GET    | /auth/me/      | Current user info |
 
-### 🧑‍💼 Admin
+###  Admin
 | Method | Endpoint                      | Description                    |
 |--------|-------------------------------|--------------------------------|
 | POST   | /admin/alerts/                | Create alert                  |
@@ -249,7 +249,7 @@ This project is fully deployed and accessible online. Below are the details:
 | DELETE | /admin/alerts/{id}/archive/   | Archive alert                 |
 | POST   | /admin/alerts/{id}/trigger/   | Trigger alert manually        |
 
-### 👥 User
+###  User
 | Method | Endpoint                        | Description            |
 |--------|---------------------------------|-----------------------|
 | GET    | /user/alerts/                   | View alerts           |
@@ -257,7 +257,7 @@ This project is fully deployed and accessible online. Below are the details:
 | POST   | /user/alerts/{id}/snooze/       | Snooze alert          |
 | GET    | /user/alerts/snoozed/           | View snoozed alerts   |
 
-### 📊 Analytics
+###  Analytics
 | Method | Endpoint                     | Description        |
 |--------|------------------------------|------------------|
 | GET    | /analytics/                  | System metrics    |
@@ -265,7 +265,7 @@ This project is fully deployed and accessible online. Below are the details:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 backend/
@@ -287,7 +287,7 @@ backend/
 ```
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### 1. Login
 
@@ -305,7 +305,7 @@ backend/
 
 ---
 
-## 🔄 How It Works
+##  How It Works
 
 ### Celery Beat:
  - Schedules process_reminders() every 2 hours
@@ -324,7 +324,7 @@ backend/
 
 ---
 
-## 🚀 Future Scope
+##  Future Scope
 
  - Email & SMS channels (Twilio / AWS SNS)
  - Custom reminder frequency
@@ -335,7 +335,7 @@ backend/
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
  Issue                 Fix
  
@@ -347,7 +347,7 @@ backend/
 
 ---
 
-## 🔐 Security Notes
+##  Security Notes
 
  - Change SECRET_KEY & disable DEBUG in production
  - Store credentials in .env
@@ -357,7 +357,7 @@ backend/
 
 ---
 
-## 📝 License
+##  License
 
 ### Educational demo showcasing:
  - Strategy
