@@ -34,13 +34,13 @@ A scalable platform for managing organizational alerts and notifications.
   <tr>
     <td align="center">
       <a href="https://drive.google.com/file/d/1L_RFW0QcDriAHaCaU25Arq763GEgggPm/view?usp=sharing" target="_blank">
-        <img src="https://drive.google.com/uc?export=view&id=1L_RFW0QcDriAHaCaU25Arq763GEgggPm" width="300"/>
+        <img src="https://drive.google.com/uc?export=view&id=1L_RFW0QcDriAHaCaU25Arq763GEgggPm" width="450"/>
       </a>
       <br/>Admin: Create Alert
     </td>
     <td align="center">
       <a href="https://drive.google.com/file/d/1GHykLPmqVpE9M3OZwnXQbx_nrltyxuNL/view?usp=sharing" target="_blank">
-        <img src="https://drive.google.com/uc?export=view&id=1GHykLPmqVpE9M3OZwnXQbx_nrltyxuNL" width="300"/>
+        <img src="https://drive.google.com/uc?export=view&id=1GHykLPmqVpE9M3OZwnXQbx_nrltyxuNL" width="450"/>
       </a>
       <br/>User: View Alerts
     </td>
@@ -48,18 +48,19 @@ A scalable platform for managing organizational alerts and notifications.
   <tr>
     <td align="center">
       <a href="https://drive.google.com/file/d/1i622EkZSGNqY-KKP1UDCKWW4TSPSwIlG/view?usp=sharing" target="_blank">
-        <img src="https://drive.google.com/uc?export=view&id=1i622EkZSGNqY-KKP1UDCKWW4TSPSwIlG" width="300"/>
+        <img src="https://drive.google.com/uc?export=view&id=1i622EkZSGNqY-KKP1UDCKWW4TSPSwIlG" width="450"/>
       </a>
       <br/>Analytics Dashboard
     </td>
     <td align="center">
       <a href="https://drive.google.com/file/d/1UWwPe_Eay2RobtTwOzO1tAecctcNtqFL/view?usp=sharing" target="_blank">
-        <img src="https://drive.google.com/uc?export=view&id=1UWwPe_Eay2RobtTwOzO1tAecctcNtqFL" width="300"/>
+        <img src="https://drive.google.com/uc?export=view&id=1UWwPe_Eay2RobtTwOzO1tAecctcNtqFL" width="450"/>
       </a>
       <br/>Admin: View Alerts
     </td>
   </tr>
 </table>
+
 
 
 
